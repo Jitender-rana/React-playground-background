@@ -7,7 +7,10 @@ import {generateRoute} from "./routes/generate"
 dotenv.config();
 const app=express();
 app.use(express.json());
-app.use(cors())
+app.use(cors({
+  origin: "https://reactplayground.100xdev.online",
+  credentials: true, // important for cookies/JWT headers
+}));
 
 app.use("/api/auth",authRouter);
 app.use("/api/user",userRouter);
